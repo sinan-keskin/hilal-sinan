@@ -333,7 +333,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let isPlayingMusic = false;
 
   if (bgAudio) {
-    bgAudio.volume = 0.75;
+    bgAudio.volume = 0.5; // Ses seviyesi %50
 
     // 2:40 (160. saniye) olduğunda başa (6. saniyeye) sar
     bgAudio.addEventListener("timeupdate", () => {

@@ -289,9 +289,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (diff > 0) {
       // Hedef henüz gelmedi: Geri Sayım
-      if (timerTag) timerTag.textContent = "BÜYÜK GÜNÜMÜZE KALAN ZAMAN";
+      if (timerTag) timerTag.textContent = "İLK MESAJ & TANIŞMA GÜNÜMÜZE KALAN";
       if (timerTitle) timerTitle.textContent = "31 Mayıs 2026";
-      if (timerFooterNote) timerFooterNote.textContent = "✨ Hayatımın en güzel hikayesi seninle yazılıyor...";
+      if (timerFooterNote) timerFooterNote.textContent = "✨ Sana ilk mesajı attığım o mucizevi an...";
 
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
@@ -303,10 +303,10 @@ document.addEventListener("DOMContentLoaded", () => {
       timerMinutes.textContent = String(minutes).padStart(2, "0");
       timerSeconds.textContent = String(seconds).padStart(2, "0");
     } else {
-      // Hedef tarih geldi veya geçti: İleri Sayım (Birlikte geçen zaman)
-      if (timerTag) timerTag.textContent = "SONSUZ BİRLİKTELİĞİMİZİN SAYACI";
+      // Hedef tarih geldi veya geçti: İleri Sayım (İlk mesajdan beri geçen zaman)
+      if (timerTag) timerTag.textContent = "İLK MESAJ VE TANIŞMAMIZDAN BERİ GEÇEN ZAMAN";
       if (timerTitle) timerTitle.textContent = "31 Mayıs 2026'dan Beri";
-      if (timerFooterNote) timerFooterNote.textContent = "❤️ Her geçen saniye sevgimiz daha da büyüyor...";
+      if (timerFooterNote) timerFooterNote.textContent = "❤️ Sana ilk mesajı attığım andan beri geçen her saniye daha çok seviyorum...";
 
       const elapsed = Math.abs(diff);
       const days = Math.floor(elapsed / (1000 * 60 * 60 * 24));

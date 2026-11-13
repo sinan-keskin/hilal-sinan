@@ -202,6 +202,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function unlockPortal() {
     playUnlockSound();
     
+    // Doğrudan kullanıcı tıklaması anında müziği başlat (User Gesture koruması)
+    initBackgroundMusic();
+
     // Asma kilit açılma animasyonu
     if (lockIcon) {
       lockIcon.innerHTML = `
@@ -221,9 +224,6 @@ document.addEventListener("DOMContentLoaded", () => {
       lockscreenOverlay.classList.add("unlocked");
       mainContent.classList.add("visible");
       sessionStorage.setItem("hilal_sinan_unlocked", "true");
-      
-      // Otomatik romantik arka plan melodisini hazırla
-      initBackgroundMusic();
     }, 450);
   }
 
@@ -357,7 +357,7 @@ document.addEventListener("DOMContentLoaded", () => {
       isPlayingMusic = true;
       if (musicToggleBtn) {
         musicToggleBtn.classList.add("playing");
-        musicToggleBtn.innerHTML = `<span>🎵</span> Müzik Açık`;
+        musicToggleBtn.innerHTML = `<span>⏸️</span> Müziği Durdur`;
       }
     }).catch(err => {
       console.warn("Müzik otomatik başlatılamadı (kullanıcı dokunuşu bekleniyor):", err);
@@ -370,7 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
     isPlayingMusic = false;
     if (musicToggleBtn) {
       musicToggleBtn.classList.remove("playing");
-      musicToggleBtn.innerHTML = `<span>🔈</span> Müziği Başlat`;
+      musicToggleBtn.innerHTML = `<span>▶️</span> Müziği Başlat`;
     }
   }
 
@@ -383,6 +383,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // Daha önce giriş yapılmışsa ilk kullanıcı dokunuşunda müziği başlat
+  window.addEventListener("pointerdown", () => {
+    if (!isPlayingMusic && sessionStorage.getItem("hilal_sinan_unlocked") === "true") {
+      initBackgroundMusic();
+    }
+  }, { once: true });
 
   // ===================================================
   // 7. İNTERAKTİF AŞK MEKTUBU & ZARF

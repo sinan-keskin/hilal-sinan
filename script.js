@@ -254,8 +254,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const val = btn.getAttribute("data-key");
       if (val === "delete") {
         handleDelete();
-      } else if (val === "hint") {
-        alert("✨ İpucu: Bizim için sonsuzluğun başladığı gün (GG.AA.YYYY)");
       } else if (val !== null) {
         handleKeyInput(val);
       }

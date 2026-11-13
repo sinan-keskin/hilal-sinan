@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Hilal & Sinan ❤️ 31.05.2026</title>
+  
+  <!-- Apple & Mobil Optimizasyonları -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Hilal & Sinan">
+  <meta name="theme-color" content="#0a070f">
+  
+  <!-- SEO & Sosyal Paylaşım -->
+  <meta name="description" content="Hilal & Sinan - Özel Aşk Portalı ve Canlı 31.05.2026 Sayacı">
+  <meta property="og:title" content="Hilal & Sinan ❤️ 31.05.2026">
+  <meta property="og:description" content="İki kalp, tek bir sonsuzluk... Hilal ve Sinan için özel aşk sayfası.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Cormorant Garamond, Great Vibes, Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Arka Plan Partikül ve Uçuşan Kalpler Tuvali -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- ===================================================
+       1. IPHONE KİLİT AÇMA EKRANI (LOCK SCREEN OVERLAY)
+       =================================================== -->
+  <div class="lockscreen-overlay" id="lockscreenOverlay">
+    
+    <!-- iOS Durum Çubuğu (Status Bar) -->
+    <div class="ios-status-bar">
+      <span id="liveClock">12:00</span>
+      <div class="ios-status-right">
+        <!-- Hücresel Sinyal -->
+        <svg width="17" height="11" viewBox="0 0 17 11" fill="none">
+          <rect x="0" y="8" width="2.5" height="3" rx="0.8" fill="white" />
+          <rect x="4.5" y="5.5" width="2.5" height="5.5" rx="0.8" fill="white" />
+          <rect x="9" y="3" width="2.5" height="8" rx="0.8" fill="white" />
+          <rect x="13.5" y="0.5" width="2.5" height="10.5" rx="0.8" fill="white" />
+        </svg>
+        <!-- Wi-Fi -->
+        <svg width="15" height="11" viewBox="0 0 16 12" fill="white">
+          <path d="M8 2.5C10.6 2.5 13 3.6 14.7 5.3L16 3.9C13.9 1.8 11.1 0.5 8 0.5C4.9 0.5 2.1 1.8 0 3.9L1.3 5.3C3 3.6 5.4 2.5 8 2.5ZM8 6.5C9.6 6.5 11 7.2 12.1 8.2L13.4 6.8C12 5.4 10.1 4.5 8 4.5C5.9 4.5 4 5.4 2.6 6.8L3.9 8.2C5 7.2 6.4 6.5 8 6.5ZM8 10.5C8.8 10.5 9.5 11.2 9.5 12C9.5 12 8 12 8 12C8 12 6.5 12 6.5 12C6.5 11.2 7.2 10.5 8 10.5Z" />
+        </svg>
+        <!-- Pil -->
+        <div class="ios-battery">
+          <div class="ios-battery-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kilit Simgesi & Başlık -->
+    <div class="lock-header">
+      <div class="lock-icon-wrap" id="lockIconWrap">
+        <svg class="lock-icon" id="lockIcon" viewBox="0 0 24 24">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+      </div>
+      <h1 class="lockscreen-title">Parolayı Girin</h1>
+      <p class="lockscreen-subtitle">Hilal & Sinan ❤️</p>
+
+      <!-- 8 Haneli Şifre Noktaları (31052026) -->
+      <div class="passcode-dots-container" id="passcodeDotsContainer">
+        <div class="passcode-dot"></div>
+        <div class="passcode-dot"></div>
+        <div class="passcode-dot"></div>
+        <div class="passcode-dot"></div>
+        <div class="passcode-dot"></div>
+        <div class="passcode-dot"></div>
+        <div class="passcode-dot"></div>
+        <div class="passcode-dot"></div>
+      </div>
+    </div>
+
+    <!-- iOS 3x4 Tuş Takımı -->
+    <div class="ios-keypad">
+      <!-- 1 -->
+      <button class="key-btn" data-key="1">
+        <span class="key-number">1</span>
+        <span class="key-letters">&nbsp;</span>
+      </button>
+      <!-- 2 -->
+      <button class="key-btn" data-key="2">
+        <span class="key-number">2</span>
+        <span class="key-letters">ABC</span>
+      </button>
+      <!-- 3 -->
+      <button class="key-btn" data-key="3">
+        <span class="key-number">3</span>
+        <span class="key-letters">DEF</span>
+      </button>
+
+      <!-- 4 -->
+      <button class="key-btn" data-key="4">
+        <span class="key-number">4</span>
+        <span class="key-letters">GHI</span>
+      </button>
+      <!-- 5 -->
+      <button class="key-btn" data-key="5">
+        <span class="key-number">5</span>
+        <span class="key-letters">JKL</span>
+      </button>
+      <!-- 6 -->
+      <button class="key-btn" data-key="6">
+        <span class="key-number">6</span>
+        <span class="key-letters">MNO</span>
+      </button>
+
+      <!-- 7 -->
+      <button class="key-btn" data-key="7">
+        <span class="key-number">7</span>
+        <span class="key-letters">PQRS</span>
+      </button>
+      <!-- 8 -->
+      <button class="key-btn" data-key="8">
+        <span class="key-number">8</span>
+        <span class="key-letters">TUV</span>
+      </button>
+      <!-- 9 -->
+      <button class="key-btn" data-key="9">
+        <span class="key-number">9</span>
+        <span class="key-letters">WXYZ</span>
+      </button>
+
+      <!-- Sol Alt: İpucu -->
+      <button class="key-btn action-btn" data-key="hint">
+        İpucu
+      </button>
+      <!-- 0 -->
+      <button class="key-btn" data-key="0">
+        <span class="key-number">0</span>
+        <span class="key-letters">&nbsp;</span>
+      </button>
+      <!-- Sağ Alt: Sil -->
+      <button class="key-btn action-btn" data-key="delete">
+        Sil
+      </button>
+    </div>
+
+    <!-- Kilit Ekranı Alt İpucu -->
+    <div class="lockscreen-footer-hint">
+      Şifre: <span>31.05.2026</span> (Özel Günümüz)
+    </div>
+
+  </div>
+
+  <!-- ===================================================
+       2. ANA SAYFA: HİLAL & SİNAN ÖZEL AŞK PORTALI
+       =================================================== -->
+  <main class="main-content" id="mainContent">
+
+    <!-- Üst Kontrol Barı -->
+    <header class="portal-topbar">
+      <button class="topbar-btn music-btn" id="musicToggleBtn">
+        <span id="musicIcon">🎵</span> Müzik Açık
+      </button>
+      <button class="topbar-btn" id="relockBtn">
+        <span>🔒</span> Ekranı Kilitle
+      </button>
+    </header>
+
+    <!-- Hero Bölümü -->
+    <section class="hero-section">
+      <div class="love-badge">
+        <span>✨</span> Sonsuz Sevgiyle Bağlı <span>✨</span>
+      </div>
+      <h1 class="hero-names">
+        Hilal <span class="heart-symbol">❤️</span> Sinan
+      </h1>
+      <p class="hero-quote">
+        "İki kalp, tek bir dünya ve sonsuza uzanan bir yolculuk..."
+      </p>
+    </section>
+
+    <!-- Canlı Zaman Sayacı (31.05.2026) -->
+    <section class="timer-container">
+      <div class="timer-header">
+        <div class="timer-tag" id="timerTag">BÜYÜK GÜNÜMÜZE KALAN ZAMAN</div>
+        <h2 class="timer-title" id="timerTitle">31 Mayıs 2026</h2>
+      </div>
+
+      <div class="timer-grid">
+        <div class="timer-unit-card">
+          <span class="timer-number" id="timerDays">00</span>
+          <span class="timer-label">Gün</span>
+        </div>
+        <div class="timer-unit-card">
+          <span class="timer-number" id="timerHours">00</span>
+          <span class="timer-label">Saat</span>
+        </div>
+        <div class="timer-unit-card">
+          <span class="timer-number" id="timerMinutes">00</span>
+          <span class="timer-label">Dakika</span>
+        </div>
+        <div class="timer-unit-card">
+          <span class="timer-number" id="timerSeconds">00</span>
+          <span class="timer-label">Saniye</span>
+        </div>
+      </div>
+
+      <p class="timer-footer-note" id="timerFooterNote">
+        ✨ Hayatımın en güzel hikayesi seninle yazılıyor...
+      </p>
+    </section>
+
+    <!-- Hilal'e Özel Aşk Mektubu (İnteraktif Zarf) -->
+    <section class="letter-section">
+      <h2 class="section-heading">Hilal'e Özel Bir Mektup</h2>
+      <p class="section-subheading">Açmak için zarfın mührüne dokun</p>
+
+      <div class="envelope-wrapper">
+        <div class="envelope" id="loveEnvelope">
+          <div class="envelope-flap"></div>
+          <div class="wax-seal">❤️</div>
+          <div class="envelope-pocket"></div>
+        </div>
+      </div>
+
+      <!-- Açılan Mektup Modal Kartı -->
+      <div class="letter-modal" id="letterModal">
+        <div class="letter-header">
+          <span class="letter-recipient">Sevgilim Hilal'e,</span>
+          <span class="letter-date">31 Mayıs 2026 ve Daima</span>
+        </div>
+        <div class="letter-body">
+          <p>
+            Hayatımın en güzel tesadüfü, kalbimin en huzurlu limanı sensin. Dünyaya baktığımda her şey hızla akıp giderken, senin yanındayken zaman duruyor ve sadece senin gözlerin kalıyor geriye.
+          </p>
+          <p>
+            31 Mayıs 2026, bizim için yalnızca takvimde bir gün değil; iki kalbin birleştiği, bir ömür boyu el ele yürüyeceğimiz yolun en parıltılı kapısı. Gülüşünle aydınlanan her sabaha, sesinle huzur bulan her geceye şükrediyorum.
+          </p>
+          <p>
+            İyi ki varsın, iyi ki benimlesin... Seni her geçen gün, dünden daha çok ve yarından bir parça eksik seveceğim.
+          </p>
+        </div>
+        <div class="letter-signature">
+          Sonsuz sevgimle, Sinan
+        </div>
+        <button class="letter-close-btn" id="closeLetterBtn">Kapat</button>
+      </div>
+    </section>
+
+    <!-- Neden Hilal? (Rastgele Aşk Nedenleri) -->
+    <section class="reasons-box">
+      <h2 class="section-heading">Seni Neden Bu Kadar Çok Seviyorum?</h2>
+      <div class="reason-card">
+        <p class="reason-text" id="randomReasonText">
+          "Gülüşünle dünyadaki tüm kederleri unutturduğun için."
+        </p>
+      </div>
+      <button class="reason-btn" id="newReasonBtn">
+        <span>❤️</span> Yeni Bir Neden Göster
+      </button>
+    </section>
+
+    <!-- Aşkımızın Zaman Çizelgesi -->
+    <section class="timeline-section">
+      <h2 class="section-heading">Aşkımızın Yolculuğu</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">BİRİNCİ ADIM</span>
+            <h3 class="timeline-title">İlk Karşılaşma & İlk Bakış</h3>
+            <p class="timeline-desc">Dünyanın en güzel hikayesinin ilk sayfasının açıldığı, gözlerimizin ilk defa birbirine kenetlendiği an.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">BİRLİKTE GEÇEN GÜNLER</span>
+            <h3 class="timeline-title">Birbirimizde Evimizi Bulduk</h3>
+            <p class="timeline-desc">Paylaşılan kahkahalar, uzun sohbetler, her zorlukta sımsıkı tutulan eller ve büyüyen derin sevgi.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">31 MAYIS 2026</span>
+            <h3 class="timeline-title">Büyük Günümüz</h3>
+            <p class="timeline-desc">Kalbimizin ve hayatlarımızın resmen ve sonsuza kadar birleştiği o muhteşem dönüm noktası.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">VE SONSUZA DEK...</span>
+            <h3 class="timeline-title">Birlikte Yaşlanacağımız Yıllar</h3>
+            <p class="timeline-desc">Her nefeste aynı heyecanla, el ele, sevgiyle ve aşkla sürecek bir ömür.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fotoğraf ve Anı Vitrini -->
+    <section class="gallery-section">
+      <h2 class="section-heading">Bizim Köşemiz</h2>
+      <p class="section-subheading">Unutulmaz anlarımızdan kareler</p>
+      
+      <div class="gallery-grid">
+        <div class="photo-card">
+          <div class="photo-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+            <span style="font-size: 13px; font-weight: 600;">En Güzel Gülüşün</span>
+          </div>
+          <span class="photo-caption">Seninle her an cennet</span>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span style="font-size: 13px; font-weight: 600;">El Ele İlk Yolculuk</span>
+          </div>
+          <span class="photo-caption">Yollar seninle güzel</span>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+            </svg>
+            <span style="font-size: 13px; font-weight: 600;">31.05.2026 Sonsuzluk</span>
+          </div>
+          <span class="photo-caption">Birlikte bir ömür</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="portal-footer">
+      <p class="footer-text">
+        Hilal &amp; Sinan &bull; <span>❤️</span> 31.05.2026
+      </p>
+      <p style="font-size: 11px; color: rgba(255, 255, 255, 0.35); margin-top: 6px;">
+        Sonsuza dek sürecek bir aşk için özel olarak tasarlandı.
+      </p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

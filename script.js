@@ -325,64 +325,49 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(updateCountdown, 1000);
 
   // ===================================================
-  // 6. AMBİENT ROMANTİK MÜZİK (WEB AUDIO GENERATOR & AUDIO)
+  // 6. ARKA PLAN MÜZİĞİ (6. SANİYEDEN 2:40'A KADAR DÖNGÜ)
   // ===================================================
+  const bgAudio = document.getElementById("bgMusic");
+  const MUSIC_START_TIME = 6;    // 6. saniye
+  const MUSIC_END_TIME = 160;    // 2:40 (160. saniye)
   let isPlayingMusic = false;
-  let bgMusicOscillators = [];
-  let bgMusicInterval = null;
 
-  // Huzurlu, romantik piyano benzeri bir melodi dizisi
-  const romanticMelodyNotes = [
-    261.63, 329.63, 392.00, 523.25, // C - E - G - C
-    293.66, 349.23, 440.00, 587.33, // D - F - A - D
-    220.00, 261.63, 329.63, 440.00, // A - C - E - A
-    349.23, 440.00, 523.25, 698.46  // F - A - C - F
-  ];
-  let noteIdx = 0;
+  if (bgAudio) {
+    bgAudio.volume = 0.75;
 
-  function playAmbientNote() {
-    if (!isPlayingMusic) return;
-    try {
-      const ctx = getAudioContext();
-      if (!ctx) return;
-      const freq = romanticMelodyNotes[noteIdx % romanticMelodyNotes.length];
-      noteIdx++;
+    // 2:40 (160. saniye) olduğunda başa (6. saniyeye) sar
+    bgAudio.addEventListener("timeupdate", () => {
+      if (bgAudio.currentTime >= MUSIC_END_TIME) {
+        bgAudio.currentTime = MUSIC_START_TIME;
+      }
+    });
 
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = "sine";
-      osc.frequency.setValueAtTime(freq, ctx.currentTime);
-
-      gain.gain.setValueAtTime(0.001, ctx.currentTime);
-      gain.gain.linearRampToValueAtTime(0.045, ctx.currentTime + 0.3);
-      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 1.8);
-
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start();
-      osc.stop(ctx.currentTime + 1.9);
-    } catch (e) {
-      console.warn(e);
-    }
+    bgAudio.addEventListener("ended", () => {
+      bgAudio.currentTime = MUSIC_START_TIME;
+      bgAudio.play().catch(e => console.warn(e));
+    });
   }
 
   function initBackgroundMusic() {
-    if (isPlayingMusic) return;
-    isPlayingMusic = true;
-    if (musicToggleBtn) {
-      musicToggleBtn.classList.add("playing");
-      musicToggleBtn.innerHTML = `<span>🎵</span> Müzik Açık`;
+    if (!bgAudio) return;
+    if (bgAudio.currentTime < MUSIC_START_TIME || bgAudio.currentTime >= MUSIC_END_TIME) {
+      bgAudio.currentTime = MUSIC_START_TIME;
     }
-    playAmbientNote();
-    bgMusicInterval = setInterval(playAmbientNote, 900);
+    bgAudio.play().then(() => {
+      isPlayingMusic = true;
+      if (musicToggleBtn) {
+        musicToggleBtn.classList.add("playing");
+        musicToggleBtn.innerHTML = `<span>🎵</span> Müzik Açık`;
+      }
+    }).catch(err => {
+      console.warn("Müzik otomatik başlatılamadı (kullanıcı dokunuşu bekleniyor):", err);
+    });
   }
 
   function stopBackgroundMusic() {
+    if (!bgAudio) return;
+    bgAudio.pause();
     isPlayingMusic = false;
-    if (bgMusicInterval) {
-      clearInterval(bgMusicInterval);
-      bgMusicInterval = null;
-    }
     if (musicToggleBtn) {
       musicToggleBtn.classList.remove("playing");
       musicToggleBtn.innerHTML = `<span>🔈</span> Müziği Başlat`;

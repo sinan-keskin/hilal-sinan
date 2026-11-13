@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function handleKeyInput(char) {
     if (enteredPasscode.length >= PASSCODE_LENGTH) return;
-    
+
     enteredPasscode += char;
     playKeyClickSound();
     updateDots();
@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function unlockPortal() {
     playUnlockSound();
-    
+
     // Doğrudan kullanıcı tıklaması anında müziği başlat (User Gesture koruması)
     initBackgroundMusic();
 
@@ -231,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
     enteredPasscode = "";
     updateDots();
     sessionStorage.removeItem("hilal_sinan_unlocked");
-    
+
     if (lockIcon) {
       lockIcon.innerHTML = `
         <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
@@ -333,7 +333,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let isPlayingMusic = false;
 
   if (bgAudio) {
-    bgAudio.volume = 0.5; // Ses seviyesi %50
+    bgAudio.volume = 0.2; // Ses seviyesi %20
 
     // 2:40 (160. saniye) olduğunda başa (6. saniyeye) sar
     bgAudio.addEventListener("timeupdate", () => {

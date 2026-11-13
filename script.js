@@ -583,7 +583,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Ekrana tıklama / dokunmada kalp fışkırtma
     window.addEventListener("pointerdown", (e) => {
-      // Şifre tuşlarına basarken veya etkileşimde minik kalp fırlat
       if (Math.random() > 0.3) {
         for (let i = 0; i < 5; i++) {
           burstParticles.push(new BurstParticle(e.clientX, e.clientY));
@@ -591,4 +590,62 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // ===================================================
+  // 10. DİNAMİK YANIP SÖNEN KIRMIZI KALP FAVICON
+  // ===================================================
+  function initPulsingHeartFavicon() {
+    const favicon = document.getElementById("dynamicFavicon") || document.querySelector("link[rel*='icon']");
+    if (!favicon) return;
+
+    const canvas = document.createElement("canvas");
+    canvas.width = 32;
+    canvas.height = 32;
+    const ctx = canvas.getContext("2d");
+
+    let isHeartOn = true;
+
+    function drawHeart(scale, alpha) {
+      ctx.clearRect(0, 0, 32, 32);
+      ctx.save();
+      ctx.translate(16, 16);
+      ctx.scale(scale, scale);
+      ctx.translate(-16, -16);
+
+      // Kırmızı kalp çizimi
+      ctx.fillStyle = `rgba(255, 23, 68, ${alpha})`;
+      ctx.shadowColor = `rgba(255, 45, 85, ${alpha * 0.8})`;
+      ctx.shadowBlur = alpha > 0.5 ? 6 : 0;
+
+      ctx.beginPath();
+      // Kalp bezier eğrileri (32x32 içine sığacak oranlar)
+      ctx.moveTo(16, 27);
+      ctx.bezierCurveTo(6, 18, 2, 13, 2, 8);
+      ctx.bezierCurveTo(2, 3.5, 5.5, 1, 10, 1);
+      ctx.bezierCurveTo(13, 1, 15, 2.5, 16, 4.5);
+      ctx.bezierCurveTo(17, 2.5, 19, 1, 22, 1);
+      ctx.bezierCurveTo(26.5, 1, 30, 3.5, 30, 8);
+      ctx.bezierCurveTo(30, 13, 26, 18, 16, 27);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+
+      favicon.href = canvas.toDataURL("image/png");
+    }
+
+    // İlk çizim
+    drawHeart(1.0, 1.0);
+
+    // Yanıp sönme döngüsü (600ms aralıkla açık/kapalı)
+    setInterval(() => {
+      isHeartOn = !isHeartOn;
+      if (isHeartOn) {
+        drawHeart(1.0, 1.0); // Parlak açık kırmızı kalp
+      } else {
+        drawHeart(0.7, 0.2); // Sönük / transparan kalp
+      }
+    }, 600);
+  }
+
+  initPulsingHeartFavicon();
 });

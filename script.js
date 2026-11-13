@@ -325,17 +325,17 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(updateCountdown, 1000);
 
   // ===================================================
-  // 6. ARKA PLAN MÜZİĞİ (6. SANİYEDEN 2:40'A KADAR DÖNGÜ)
+  // 6. ARKA PLAN MÜZİĞİ (44. SANİYEDEN 2:50'YE KADAR DÖNGÜ)
   // ===================================================
   const bgAudio = document.getElementById("bgMusic");
-  const MUSIC_START_TIME = 6;    // 6. saniye
-  const MUSIC_END_TIME = 160;    // 2:40 (160. saniye)
+  const MUSIC_START_TIME = 44;   // 44. saniye
+  const MUSIC_END_TIME = 170;    // 2:50 (170. saniye)
   let isPlayingMusic = false;
 
   if (bgAudio) {
-    bgAudio.volume = 0.2; // Ses seviyesi %20
+    bgAudio.volume = 0.5; // Ses seviyesi %50
 
-    // 2:40 (160. saniye) olduğunda başa (6. saniyeye) sar
+    // 2:50 (170. saniye) olduğunda başa (44. saniyeye) sar
     bgAudio.addEventListener("timeupdate", () => {
       if (bgAudio.currentTime >= MUSIC_END_TIME) {
         bgAudio.currentTime = MUSIC_START_TIME;
